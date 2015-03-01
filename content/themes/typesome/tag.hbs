@@ -1,0 +1,69 @@
+{{!< default}}
+
+<header class="site-head post-2">
+	<div class="vertical">
+		<div role='banner' class="header_typesome">
+			{{#if @blog.logo}}<a class="logo_typesome" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+			<h1 class="blogtitle_typesome">{{tag.name}}</h1>
+		</div>
+	</div>
+</header>
+
+
+<main class="main_typesome" role="main">
+<hr class="pause" />
+	{{#foreach posts}}
+	<article class="article_typesome">
+				
+				<header class="postheader_typesome">
+					<ul>
+                        {{#if author.image}}<li><img class="author-thumb_typesome" src="{{author.image}}" alt="Author image" nopin="nopin" /></li>{{/if}}
+                        <li class="name-thumb_typesome"><a href="{{@blog.url}}/author/{{author.slug}}">{{author.name}}</a></li>
+						<li class="date_typesome"><time>
+						{{date format='dddd DD MMM YYYY'}}</time></li>
+						{{#if tags}}
+						<li class="posttags_typesome">
+						{{tags  separator=", "}}
+						</li>
+						{{/if}}
+					</ul>
+					
+					<h2 class="posttitle_typesome"><a href="{{{url}}}" rel="bookmark">
+						{{title}}
+					</a></h2>
+					
+				</header>
+			
+			<div class="postcontent_typesome">
+				<p>{{excerpt}}&hellip;</p>
+			</div>
+			
+			
+			<footer class="excerptfooter_typesome" >
+				<section class="read_typesome">
+					<a class="more_typesome" href="{{{url}}}">Read More</a>
+					<span></span> 
+					<a class="comments_typesome" href="{{url}}#disqus_thread" data-disqus-identifier="{{id}}">Comments</a>
+				</section>
+				
+				<section class="share_typesome"> 
+					<h4>Share: &nbsp;</h4>
+					<a class="fa fa-twitter-square" target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"><span class="hidden_typesome">Twitter</span></a>
+				<a class="fa fa-facebook-square" target="_blank" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}"><span class="hidden_typesome">Facebook</span></a>
+				<a class="fa fa-google-plus-square" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><span class="hidden_typesome">Google+</span></a>
+				</section>
+			</footer>
+			
+		</article>
+	
+	{{/foreach}}
+
+	{{#if pagination}}
+	<div class="pagination_typesome">
+		{{{pagination}}}
+	</div>
+		
+	{{/if}}
+
+</main>
+{{> footer}}

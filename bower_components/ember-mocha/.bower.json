@@ -1,0 +1,26 @@
+{
+  "name": "ember-mocha",
+  "version": "0.3.0",
+  "authors": [
+    "Dan Gebhardt",
+    "Robert Jackson"
+  ],
+  "license": "Apache Version 2.0",
+  "ignore": [],
+  "dependencies": {
+    "mocha": "~2.1.0",
+    "chai": "~1.10.0",
+    "ember-mocha-adapter": "~0.2.1"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/switchfly/ember-mocha-builds",
+  "_release": "0.3.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.0",
+    "commit": "f2b728a545d771feef3319636ce2a1d5c58fbc71"
+  },
+  "_source": "git://github.com/switchfly/ember-mocha-builds.git",
+  "_target": "~0.3.0",
+  "_originalSource": "ember-mocha"
+}

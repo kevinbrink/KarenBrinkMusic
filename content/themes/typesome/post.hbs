@@ -1,0 +1,117 @@
+{{!< default}}
+{{#post}}
+<header id="{{#if image}}site-head" style="background-image: url({{image}}){{else}}no-cover{{/if}}" class="site-head post-2">
+	<div class="vertical">
+		<div role='banner' class="header_typesome">
+			{{#if @blog.logo}}<a class="logo_typesome" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+			<h1 class="blogtitle_typesome">
+			<a title="{{@blog.title}}" href='{{@blog.url}}'>
+			{{{@blog.title}}}
+			</a>
+			</h1>
+		</div>
+        
+	</div>
+    
+</header>
+
+
+<main class="main_typesome" role="main">
+<hr class="pause {{#if image}}remove{{/if}}" />
+
+	<article class="article_typesome">
+	
+		<header class="postheader_typesome">
+			<ul>
+				<li><time class="date_typesome">{{date format='dddd DD MMM YYYY'}}</time></li>
+					{{#if tags}}
+				<li class="posttags_typesome">{{tags  separator=" | "}}</li>
+					{{/if}}
+
+			</ul>
+		
+			<h1 class="posttitle_typesome">{{title}}</h1>
+	
+		</header>
+	
+		<div class="postcontent_typesome">
+			{{content}}
+		</div>
+	
+		<div class="back_typesome">
+			<p class="go-back"><a class="fa fa-long-arrow-left" href="{{@blog.url}}"><span>Back</span></a></p>
+			<p class="nav"><a class="fa fa-long-arrow-up" href="{{post}}"><span>Back to top</span></a></p>
+		</div>
+
+   		
+     {{#if author}}
+     <footer class="postfooter_typesome">
+	 
+		  {{! <address> }}
+				{{#if author.image}}
+				<div class="authorimage_typesome" style="background-image: url({{author.image}})"></div>
+				{{/if}}
+				<div class="author_typesome">
+					<ul>
+						<li><h4 class="authorname_typesome"><a href="{{@blog.url}}/author/{{author.slug}}">{{author.name}}</a></h4></li>
+						{{#if author.location}}
+						<li><h5 class="authordata_typesome">{{author.location}}</h5></li>
+						{{/if}}
+						{{#if author.website}}
+						<li><h5 class="authordata_typesome"><a href="{{author.website}}">{{author.website}}</a></h5></li>
+						{{/if}}
+					</ul>
+						<p class="authorbio_typesome">{{author.bio}}</p>
+				</div>
+				
+		
+			
+		<section class="sharepost_typesome">
+				<h4>Share this:</h4>
+				<a class="fa fa-twitter-square" target="_blank" href="http://twitter.com/share?text={{title}}&url={{url absolute="true"}}"><span class="hidden_typesome">Twitter</span></a>
+				<a class="fa fa-facebook-square" target="_blank" href="http://www.facebook.com/sharer.php?u={{url absolute="true"}}"><span class="hidden_typesome">Facebook</span></a>
+				<a class="fa fa-google-plus-square" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}"><span class="hidden_typesome">Google+</span></a>
+				
+				
+    	</section>
+       
+		</footer>
+        {{/if}}
+	
+	</article>
+	
+	
+	<div class="disqusbox_typesome">
+		
+		
+		<div id="disqus_thread"><form onsubmit="my.loadDisqus();return false;" class=formBlock><input class="cmd_typesome" type=submit value="Load Comments"></form>
+		</div>
+
+<script>
+    
+    var disqus_shortname = "example"; // required: replace example with your Disqus shortname
+
+    var disqus_url = "{{url absolute="true"}}";
+    var disqus_identifier = '{{id}}';
+    var my = my || {};
+
+    my.loadDisqus = function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+};
+</script>
+        
+<noscript>Please enable javascript to <a rel="nofollow" href="http://disqus.com/?ref_noscript">discus this page, powered by Disqus.</a></noscript>
+<style scoped=scoped>
+@media print{
+ .disqusbox{display:none}
+}
+</style>
+</div>	
+	
+{{/post}}
+</main>
+{{> footer}}
